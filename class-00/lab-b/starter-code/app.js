@@ -164,21 +164,14 @@ let message = (name) => {
 console.log(message('Allie'));
 
 
-// let Student = function(name, age, hometown) {
-//   this.name = name;
-//   this.age = age;
-//   this.hometown = hometown;
-// };
+let Student = function(name, age, hometown) {
+  this.name = name;
+  this.age = age;
+  this.hometown = hometown;
+};
 
 
-// let student = (name, age, hometown) => {
-//   let name = name;
-//   let age = age;
-//   let hometown = hometown;
-//   return [name, age, hometown];
-// }
-
-let joe =  student('Joe', 'Schmoe', 100);
+let joe = new Student('Joe', 'Schmoe', 100);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
@@ -191,6 +184,8 @@ console.log(joe);
 Student.prototype.greeting = function() {
   return `Hi, my name is ${this.name}`;
 };
+
+
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
@@ -205,7 +200,7 @@ Student.courseName = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
@@ -216,17 +211,17 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+//it is undefined
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+//this referes to the window since joe seems to be a global variable. 
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//because arrow funtions bind 'this' to the parent function (that does not contain an arrow function) until it reaches the global scope. 
